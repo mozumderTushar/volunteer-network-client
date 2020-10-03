@@ -29,6 +29,21 @@ const Register = () => {
 
      const onSubmit = data => {
         console.log(data);
+        const volunteerDetails = {...loggedInUser, volunteerEvent: data.event, registrationDate: data.date, desicription: data.desicription}
+   
+        fetch('http://localhost:5000/addVolunteer', {
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(volunteerDetails)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data){
+                alert('Registration succeeded')
+            }
+        })
     }
 
     return (
@@ -39,6 +54,7 @@ const Register = () => {
                 <div className="my-5">
                     <h3>Register as a Volunteer</h3>
                     <form className="volunteer-form text-center" onSubmit={handleSubmit(onSubmit)}>
+
                         <input name="name" defaultValue={loggedInUser.name} ref={register({ required: true })} placeholder="Full Name" />
                         {errors.name && <span className="error">Name is required</span>}
                        
@@ -51,8 +67,8 @@ const Register = () => {
                         <input name="desicription" ref={register({ required: true })} placeholder="Desicription" />
                         {errors.desicription && <span className="error">Desicription is required</span>}
                       
-                        <input name="name" defaultValue={volunteerInfo.name} ref={register({ required: true })} placeholder="Full Name" />
-                        {errors.name && <span className="error">Name is required</span>}
+                        <input name="event" defaultValue={volunteerInfo.name} ref={register({ required: true })} placeholder="Event Name" />
+                        {errors.event && <span className="error">Event is required</span>}
 
                         <input className="commonBgColor" type="submit"  value="Registration" style={{color:'#fff'}}/>
                     </form>
