@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SearchBanner from '../SearchBanner/SearchBanner';
 import Volunteer from '../Volunteer/Volunteer';
 
@@ -27,7 +28,7 @@ const Header = () => {
                         </li>
                     </ul>
                     <button type="button" className="btn btn-primary mr-3">Register</button>
-                    <button type="button" className="btn btn-dark">Admin</button>
+                    <Link to="/admin"><button type="button" className="btn btn-dark">Admin</button></Link>
                 </div>
             </nav>
             <SearchBanner/>

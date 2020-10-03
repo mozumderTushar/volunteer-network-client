@@ -10,6 +10,7 @@ import Header from './components/Header/Header';
 import Register from './components/Register/Register';
 import LogIn from './components/LogIn/LogIn';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Admin from './components/Admin/Admin';
 
 export const UserContext = createContext();
 
@@ -22,6 +23,9 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Header/>
+            </Route>
+            <Route path="/admin">
+              <Admin/>
             </Route>
             <PrivateRoute path="/register/:registerId">
               <Register/>
