@@ -14,23 +14,23 @@ const Header = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                            <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Donation</a>
+                            <a className="nav-link" href="/donation">Donation</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Events</a>
+                            <a className="nav-link" href="/events">Events</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Blog</a>
+                            <a className="nav-link" href="/blog">Blog</a>
                         </li>
                     </ul>
                     <button type="button" className="btn btn-primary mr-3">Register</button>
                     <Link to="/admin"><button type="button" className="btn btn-dark">Admin</button></Link>
                 </div>
             </nav>
-            
+
         </div>
     );
 };

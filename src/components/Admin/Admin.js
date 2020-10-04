@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
+import './Admin.css'
 
 
 const Admin = () => {
     const [register, setRegister] = useState([])
 
     useEffect(() => {
+        
         fetch('http://localhost:5000/allVolunteer')
             .then(response => response.json())
             .then(data => setRegister(data))
-    }, [])
+    }, [register])
 
-   
+
     const deleteEvent = (id) => {
         fetch(`http://localhost:5000/delete/${id}`, {
             method: 'DELETE'
         })
         .then(response => response.json())
         .then(result => {
-            alert('deleted successfully');
+            if(result){
+                console.log(result)
+            }    
         })
     }
 
@@ -38,36 +43,34 @@ const Admin = () => {
                 <div className="col-md-10">
                     <h2>Volunteer register list</h2>
                     <div className="container">
-                        <div className="row my-3">
-                            <div className="col-sm "><h6>Name</h6></div>
-                            <div className="col-sm "><h6>Email ID</h6></div>
-                            <div className="col-sm"><h6>Ragistating Date</h6></div>
-                            <div className="col-sm"><h6>Volunteer List</h6></div>
-                            <div className="col-sm"><h6></h6></div>
-                        </div>
+                        <Table>
+                            <thead>
+                                <tr className="text-center">
+                                    <th>Name</th>
+                                    <th></th>
+                                    <th>Email ID</th>
+                                    <th></th>
+                                    <th>Registration Date</th>
+                                    <th>Volunteer List</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                        </Table>
                     </div>
                     {
-                        register.map(regi =>
-
-                            <div key={regi._id} className="container">
-                                <div className="row">
-                                    <div className="col-sm my-p-2">
-                                        {regi.name}
-                                    </div>
-                                    <div className="col-sm">
-                                        {regi.email}
-                                    </div>
-                                    <div className="col-sm">
-                                        {regi.registrationDate}
-                                    </div>
-                                    <div className="col-sm">
-                                        {regi.volunteerEvent}
-                                    </div>
-                                    <div className="col-sm">
-                                    <img className="img-fluid" onClick={() => deleteEvent(regi._id)} style={{backgroundColor:'red', height:'25px'}} src="https://i.ibb.co/xgfms6g/trash-2-9.png" alt=""/>
-                                    </div>
-                                    
-                                </div>
+                        register.map(reg =>
+                            <div className="container" key={reg._id}>
+                                <Table striped bordered hover>
+                                    <tbody>
+                                        <tr>
+                                            <td> {reg.name}</td>
+                                            <td>{reg.email}</td>
+                                            <td>{reg.registrationDate}</td>
+                                            <td>{reg.volunteerEvent}</td>
+                                            <td> <img className="img-fluid" onClick={() => deleteEvent(reg._id)} style={{ backgroundColor: 'red', height: '25px' }} src="https://i.ibb.co/xgfms6g/trash-2-9.png" alt="" /></td>
+                                        </tr>
+                                    </tbody>
+                                </Table>
                             </div>
                         )
                     }

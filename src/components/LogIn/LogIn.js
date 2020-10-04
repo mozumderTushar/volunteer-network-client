@@ -30,20 +30,17 @@ const LogIn = () => {
       history.replace(from);
 
     }).catch(function (error) {
-      // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
-      // The email of the user's account used.
       var email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
       var credential = error.credential;
-      // ...
+      alert('Please try again')
     });
   }
 
   return (
     <div>
-      <img className="icon-img" src="https://i.ibb.co/vJ36rM4/Group-1329.png" alt=""  />
+      <img className="icon-img" src="https://i.ibb.co/vJ36rM4/Group-1329.png" alt="" />
       <Card className="card-style" >
 
         <div className="my-5">

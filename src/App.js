@@ -22,32 +22,31 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({})
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <h1>name: {loggedInUser.name}</h1>
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Header/>
-              <SearchBanner/>
-              <Volunteer/>
-            </Route>
-            <Route path="/admin">
-              <Admin/>
-            </Route>
-            <PrivateRoute path="/register/:registerId">
-              <Register/>
-            </PrivateRoute>
-            <Route path="/login">
-              <LogIn/>
-            </Route>
-            <PrivateRoute path="/registerVolunteer">
-              <Header/>
-              <RegisterVolunteer/>
-            </PrivateRoute>
-            <Route path="*">
-              <NotFound/>
-            </Route>
-          </Switch>
-        </Router>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Header />
+            <SearchBanner />
+            <Volunteer />
+          </Route>
+          <Route path="/admin">
+            <Admin />
+          </Route>
+          <PrivateRoute path="/register/:registerId">
+            <Register />
+          </PrivateRoute>
+          <Route path="/login">
+            <LogIn />
+          </Route>
+          <PrivateRoute path="/registerVolunteer">
+            <Header />
+            <RegisterVolunteer />
+          </PrivateRoute>
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
+      </Router>
     </UserContext.Provider>
   );
 }

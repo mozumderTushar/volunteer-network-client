@@ -7,22 +7,22 @@ const RegisterVolunteer = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
 
     useEffect(() => {
-        fetch('http://localhost:5000/volunteer?email='+loggedInUser.email)
+        fetch('http://localhost:5000/volunteer?email=' + loggedInUser.email)
             .then(response => response.json())
             .then(data => setRegister(data))
     }, [register])
-   
+
     const deleteEvent = (id) => {
         fetch(`http://localhost:5000/delete/${id}`, {
             method: 'DELETE'
         })
-        .then(response => response.json())
-        .then(result => {
-            if(result){
-                console.log(result)
-            }
-            
-        })
+            .then(response => response.json())
+            .then(result => {
+                if (result) {
+                    console.log(result)
+                }
+
+            })
     }
 
     return (
