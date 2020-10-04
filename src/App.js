@@ -11,6 +11,10 @@ import Register from './components/Register/Register';
 import LogIn from './components/LogIn/LogIn';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Admin from './components/Admin/Admin';
+import RegisterVolunteer from './components/RegisterVolunteer/RegisterVolunteer';
+import NotFound from './components/NotFound/NotFound';
+import SearchBanner from './components/SearchBanner/SearchBanner';
+import Volunteer from './components/Volunteer/Volunteer';
 
 export const UserContext = createContext();
 
@@ -23,6 +27,8 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Header/>
+              <SearchBanner/>
+              <Volunteer/>
             </Route>
             <Route path="/admin">
               <Admin/>
@@ -32,6 +38,13 @@ function App() {
             </PrivateRoute>
             <Route path="/login">
               <LogIn/>
+            </Route>
+            <PrivateRoute path="/registerVolunteer">
+              <Header/>
+              <RegisterVolunteer/>
+            </PrivateRoute>
+            <Route path="*">
+              <NotFound/>
             </Route>
           </Switch>
         </Router>

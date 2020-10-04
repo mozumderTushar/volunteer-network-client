@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { UserContext } from '../../App';
 import './Register.css';
 import DatePicker from "react-datepicker";
+
  
 import "react-datepicker/dist/react-datepicker.css";
+import RegisterVolunteer from '../RegisterVolunteer/RegisterVolunteer';
 
 
 const Register = () => {
@@ -15,6 +17,9 @@ const Register = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
    
     const [volunteerInfo, setVolunteerInfo] = useState([])
+    const [findValue, setFindValue] = useState([])
+
+    const history = useHistory()
 
 
     useEffect(() => {
@@ -40,14 +45,17 @@ const Register = () => {
         })
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             if(data){
                 alert('Registration succeeded')
+                history.push('/registerVolunteer')
             }
         })
     }
 
     return (
         <div>
+            
             <img className="icon-img" src="https://i.ibb.co/vJ36rM4/Group-1329.png" alt="" />
             <Card className="card-style" >
 
@@ -74,6 +82,9 @@ const Register = () => {
                     </form>
                 </div>
             </Card>
+            {/* {
+                findValue.map(pd => <RegisterVolunteer pd={pd}></RegisterVolunteer>)
+            } */}
         </div>
     );
 };

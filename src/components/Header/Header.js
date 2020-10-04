@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SearchBanner from '../SearchBanner/SearchBanner';
-import Volunteer from '../Volunteer/Volunteer';
+
 
 const Header = () => {
     return (
@@ -31,8 +30,7 @@ const Header = () => {
                     <Link to="/admin"><button type="button" className="btn btn-dark">Admin</button></Link>
                 </div>
             </nav>
-            <SearchBanner/>
-            <Volunteer/>
+            
         </div>
     );
 };

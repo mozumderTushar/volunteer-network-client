@@ -7,9 +7,9 @@ const VolunteerType = (props) => {
     return (
         <div className="col-md-3 p-3">
             <Link to={`/register/${id}`}>
-            <div className="card">
+            <div className="card volunteerEvents">
                 <img src={img} className="card-img-top" alt="..." />
-                <div className="card-body">
+                <div className="card-body volunteerEventsName">
                     <p className="card-text">{name}</p>
                 </div>
             </div>

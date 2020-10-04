@@ -13,10 +13,12 @@ const Volunteer = () => {
 
     return (
         
-        <div className="row mt-3">
+        <div className="container">
+            <div className="row mt-3">
             {
                 volunteer.map(volunteer => <VolunteerType volunteer={volunteer} key={volunteer.id}></VolunteerType>)
             }
+        </div>
         </div>
     );
 };
