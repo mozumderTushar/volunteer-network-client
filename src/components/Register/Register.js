@@ -17,8 +17,7 @@ const Register = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
    
     const [volunteerInfo, setVolunteerInfo] = useState([])
-    const [findValue, setFindValue] = useState([])
-
+    
     const history = useHistory()
 
 
@@ -33,7 +32,7 @@ const Register = () => {
    
 
      const onSubmit = data => {
-        console.log(data);
+       
         const volunteerDetails = {...loggedInUser, volunteerEvent: data.event, registrationDate: data.date, desicription: data.desicription}
    
         fetch('http://localhost:5000/addVolunteer', {
@@ -45,7 +44,6 @@ const Register = () => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             if(data){
                 alert('Registration succeeded')
                 history.push('/registerVolunteer')
@@ -82,9 +80,6 @@ const Register = () => {
                     </form>
                 </div>
             </Card>
-            {/* {
-                findValue.map(pd => <RegisterVolunteer pd={pd}></RegisterVolunteer>)
-            } */}
         </div>
     );
 };

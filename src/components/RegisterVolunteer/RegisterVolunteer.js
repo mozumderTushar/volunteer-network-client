@@ -10,16 +10,17 @@ const RegisterVolunteer = () => {
         fetch('http://localhost:5000/volunteer?email='+loggedInUser.email)
             .then(response => response.json())
             .then(data => setRegister(data))
-    }, [])
-  
+    }, [register])
+   
     const deleteEvent = (id) => {
-        
         fetch(`http://localhost:5000/delete/${id}`, {
             method: 'DELETE'
         })
         .then(response => response.json())
         .then(result => {
-            console.log(result);
+            if(result){
+                console.log(result)
+            }
             
         })
     }
