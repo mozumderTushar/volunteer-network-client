@@ -11,7 +11,7 @@ const AddNewEvent = () => {
     const onSubmit = data => {
         const newEvent = { name: data.eventName, eventDate: data.date, desicription: data.desicription }
 
-        fetch('http://localhost:5000/singleEvent', {
+        fetch('https://stormy-temple-22049.herokuapp.com/singleEvent', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

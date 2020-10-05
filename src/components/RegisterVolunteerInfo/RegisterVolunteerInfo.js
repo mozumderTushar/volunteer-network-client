@@ -6,7 +6,7 @@ const RegisterVolunteerInfo = (props) => {
     const [img, setImg] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/allEvents')
+        fetch('https://stormy-temple-22049.herokuapp.com/allEvents')
             .then(response => response.json())
             .then(data => {
                 const registerEventImg = data.find(eventImg => eventImg.name.toLowerCase() === volunteerEvent.toLowerCase())

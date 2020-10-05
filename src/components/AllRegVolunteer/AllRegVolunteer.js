@@ -6,14 +6,14 @@ const AllRegVolunteer = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/allVolunteer')
+        fetch('https://stormy-temple-22049.herokuapp.com/allVolunteer')
             .then(response => response.json())
             .then(data => setRegister(data))
     }, [register])
 
 
     const deleteEvent = (id) => {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://stormy-temple-22049.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         })
             .then(response => response.json())

@@ -7,13 +7,13 @@ const RegisterVolunteer = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
 
     useEffect(() => {
-        fetch('http://localhost:5000/volunteer?email=' + loggedInUser.email)
+        fetch('https://stormy-temple-22049.herokuapp.com/volunteer?email=' + loggedInUser.email)
             .then(response => response.json())
             .then(data => setRegister(data))
     }, [register])
 
     const deleteEvent = (id) => {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://stormy-temple-22049.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         })
             .then(response => response.json())

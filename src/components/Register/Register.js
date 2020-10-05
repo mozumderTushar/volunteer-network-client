@@ -22,7 +22,7 @@ const Register = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/allEvents')
+        fetch('https://stormy-temple-22049.herokuapp.com/allEvents')
             .then(response => response.json())
             .then(data => {
                 const registerEvent = data.find(event => event._id === registerId)
@@ -35,7 +35,7 @@ const Register = () => {
 
         const volunteerDetails = { ...loggedInUser, volunteerEvent: data.event, registrationDate: data.date, desicription: data.desicription }
 
-        fetch('http://localhost:5000/addVolunteer', {
+        fetch('https://stormy-temple-22049.herokuapp.com/addVolunteer', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -6,7 +6,7 @@ const Volunteer = () => {
     const [volunteer, setVolunteer] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/allEvents')
+        fetch('https://stormy-temple-22049.herokuapp.com/allEvents')
             .then(response => response.json())
             .then(data => setVolunteer(data))
     }, [])
