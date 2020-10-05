@@ -16,7 +16,7 @@ const Volunteer = () => {
         <div className="container">
             <div className="row mt-3">
                 {
-                    volunteer.map(volunteer => <VolunteerType volunteer={volunteer} key={volunteer.id}></VolunteerType>)
+                    volunteer.map(volunteer => <VolunteerType volunteer={volunteer} key={volunteer._id}></VolunteerType>)
                 }
             </div>
         </div>
