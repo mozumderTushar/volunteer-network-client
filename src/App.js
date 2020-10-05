@@ -16,6 +16,7 @@ import NotFound from './components/NotFound/NotFound';
 import SearchBanner from './components/SearchBanner/SearchBanner';
 import Volunteer from './components/Volunteer/Volunteer';
 import AllRegVolunteer from './components/AllRegVolunteer/AllRegVolunteer';
+import AddNewEvent from './components/AddNewEvent/AddNewEvent';
 
 export const UserContext = createContext();
 
@@ -45,6 +46,9 @@ function App() {
           </PrivateRoute>
           <Route path="/allVolunteer">
             <AllRegVolunteer/>
+          </Route>
+          <Route path="/newEvent">
+            <AddNewEvent/>
           </Route>
           <Route path="*">
             <NotFound />

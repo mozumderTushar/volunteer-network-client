@@ -25,7 +25,7 @@ const Register = () => {
         fetch('http://localhost:5000/allEvents')
             .then(response => response.json())
             .then(data => {
-                const registerEvent = data.find(event => event.id === registerId)
+                const registerEvent = data.find(event => event._id === registerId)
                 setVolunteerInfo(registerEvent)
             })
     }, [registerId])

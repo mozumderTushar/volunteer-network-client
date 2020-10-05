@@ -17,7 +17,7 @@ const Admin = () => {
                     </div>
                     <div className="d-flex">
                         <img style={{ height: '25px' }} src="https://i.ibb.co/3BSp44P/plus-1.png" alt="" />
-                        <p>Add event</p>
+                        <Link to="/newEvent"><p>Add event</p></Link>
                     </div>
                 </div>
             </div>
